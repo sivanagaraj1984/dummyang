@@ -14,12 +14,13 @@ export class VehiclesComponent implements OnInit {
     public isLoading = true;
 
     ngOnInit(): void {
-        fetch('http://localhost:5000/api/vehicles')
+        /*fetch('http://localhost:5000/api/vehicles')
             .then(response => response.json())
             .then(d => {
                 this.isLoading = false;
                 this.data = d;
             });
+            */
     }
 
     submit(): void {
