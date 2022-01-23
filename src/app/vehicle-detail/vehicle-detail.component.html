@@ -1,0 +1,41 @@
+<div style="padding:15px;">
+<h1>Vehicle Details</h1>
+<div><a href="/">Back to list</a></div>
+
+<ng-container *ngIf="isLoading">Fetching data...</ng-container>
+<ng-container *ngIf="!isLoading">
+    <h2>{{data.make}} {{data.model}} {{data.year}}</h2>
+    <table>
+        <tbody>
+        <tr>
+            <td>Price:</td>
+            <td>{{data.price}}</td>
+        </tr>
+        <tr *ngIf="data.discountPrice">
+            <td>DiscountPrice:</td>
+            <td>{{data.discountPrice}}</td>
+        </tr>
+        <tr *ngIf="data.discountPercent">
+            <td>DiscountPrice:</td>
+            <td>{{(+data.discountPercent / 100) | percent}}</td>
+        </tr>
+        <tr>
+            <td>Comments:</td>
+            <td>{{data.comments}}</td>
+        </tr>
+        <tr>
+            <td>Seller Type:</td>
+            <td>{{data.sType}}</td>
+        </tr>
+        <tr>
+            <td>Seller Name:</td>
+            <td>{{data.seller.name}}</td>
+        </tr>
+        <tr>
+            <td>Seller Location:</td>
+            <td>{{data.seller.suburb}}, {{data.seller.state}}</td>
+        </tr>
+        </tbody>
+    </table>
+</ng-container>
+</div>

@@ -1,0 +1,44 @@
+<h1>{{title}}</h1>
+<div class="search">
+    <table>
+        <tbody>
+        <tr>
+            <td>Seller Type:
+            </td>
+            <td>
+                <select [(ngModel)]="fSellerType">
+                    <option value="">Any</option>
+                    <option value="Dealer">Dealer</option>
+                    <option value="Private">Private</option>
+                </select>
+            </td>
+            <td>
+                Make:
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="fMake">
+            </td>
+            <td>
+                <button (click)="submit()">Search</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Seller Type</th>
+        </tr>
+        <tr *ngFor="let item of data">
+            <td>{{item.id}}</td>
+            <td><a href="/details/{{item.id}}">{{item.make + ' ' + item.model + ' ' + item.year}}</a></td>
+            <td>${{item.price}}</td>
+            <td>{{item.sType}}</td>
+        </tr>
+    </tbody>
+</table>
